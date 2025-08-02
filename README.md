@@ -24,7 +24,7 @@ Este proyecto levanta un stack de monitoreo de logs usando Docker Compose con Lo
 
 1. Clona este repositorio y navega a la carpeta `ironsofts-observability`:
    ```bash
-   git clone <REPO_URL>
+   git clone https://github.com/ironsofts/ironsofts-observability.git
    cd ironsofts-observability
    ```
 2. (Opcional) Crea un archivo `.env` para personalizar los puertos si lo deseas.
@@ -58,7 +58,7 @@ This project allows you to easily deploy a complete stack to collect all logs fr
 
 1. Clone this repository and go to the `ironsofts-observability` folder:
    ```bash
-   git clone <REPO_URL>
+   git clone https://github.com/ironsofts/ironsofts-observability.git
    cd ironsofts-observability
    ```
 2. (Optional) Create a `.env` file to customize ports if needed.
