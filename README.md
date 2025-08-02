@@ -2,13 +2,13 @@
 
 Stack de monitoreo de logs con Loki, Promtail y Grafana
 
-Este proyecto te permite levantar fácilmente un stack completo para recolectar todos los logs de tus servicios en Docker y visualizarlos de forma centralizada en Grafana. Solo necesitas subir el proyecto, ejecutarlo y tendrás acceso a los logs de todos tus contenedores desde una interfaz web.
-
 ---
 
 ## Español
 
 Este proyecto levanta un stack de monitoreo de logs usando Docker Compose con Loki, Promtail y Grafana.
+
+Este proyecto te permite implementar fácilmente una pila completa para recopilar todos los registros de tus servicios de Docker y visualizarlos centralmente en Grafana. Simplemente carga (clona) el proyecto, ejecútalo y tendrás acceso a todos los registros de tus contenedores desde una interfaz web.
 
 ### Servicios
 
@@ -33,6 +33,10 @@ Este proyecto levanta un stack de monitoreo de logs usando Docker Compose con Lo
    docker-compose up -d
    ```
 4. Accede a Grafana en: [http://localhost:3000](http://localhost:3000) (usuario y contraseña por defecto: `admin`/`admin`).
+
+## Mantenimiento
+
+Este repositorio es mantenido por **Gregorio Bolivar**, CEO de la empresa Ironsofts.
 
 ---
 
@@ -70,8 +74,6 @@ This project allows you to easily deploy a complete stack to collect all logs fr
 
 ---
 
-## Mantenimiento / Maintainer
-
-Este repositorio es mantenido por **Gregorio Bolivar**, CEO de la empresa Ironsofts.
+## Maintainer
 
 This repository is maintained by **Gregorio Bolivar**, CEO of Ironsofts.
