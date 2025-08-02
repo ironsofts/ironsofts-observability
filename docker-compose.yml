@@ -1,0 +1,55 @@
+services:
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "${GRAFANA_FORWARD_PORT:-3000}:3000"
+    depends_on:
+      - loki
+    env_file:
+      - .env
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    networks:
+      - grafana
+
+  loki:
+    image: grafana/loki:latest
+    container_name: loki
+    restart: unless-stopped
+    expose:
+      - "3100"
+      - "9096"
+    command: -config.file=/etc/loki/local-config.yaml -config.expand-env=true
+    volumes:
+      - ./loki-config.yaml:/etc/loki/local-config.yaml
+      - loki-data:/data/loki
+    env_file:
+      - .env
+    networks:
+      - grafana
+
+  promtail:
+    image: grafana/promtail:latest
+    container_name: promtail
+    restart: unless-stopped
+    volumes:
+      #- ./logs:/var/log
+      - /var/log:/var/log # Logs del sistema
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /etc/machine-id:/etc/machine-id:ro
+      - ./promtail-config.yaml:/etc/promtail/config.yaml
+    command: -config.file=/etc/promtail/config.yaml
+    depends_on:
+      - loki
+    networks:
+      - grafana
+
+volumes:
+  grafana-storage: {}
+  loki-data: {}
+networks:
+  grafana:
+    driver: bridge
